@@ -12,11 +12,11 @@ pixels = neopixel.NeoPixel(board.NEOPIXEL, 10, brightness=0.2, auto_write=False)
 
 # choose which demos to play
 # 1 means play, 0 means don't!
-color_chase_demo = 1
-flash_demo = 1
-rainbow_demo = 1
-rainbow_cycle_demo = 1
-
+color_chase_demo = 0
+flash_demo = 0
+rainbow_demo = 0
+rainbow_cycle_demo = 0
+traffic_light = 1
 
 def color_chase(color, wait):
     for i in range(10):
@@ -83,3 +83,14 @@ while True:
 
     if rainbow_demo:
         rainbow(0.05)  # Increase the number to slow down the rainbow.
+        
+    if traffic_light:
+        pixels.fill(RED)
+        pixels.show()
+        time.sleep(3)
+        pixels.fill(YELLOW)
+        pixels.show()
+        time.sleep(3)
+        pixels.fill(GREEN)
+        pixels.show()
+        time.sleep(3)
